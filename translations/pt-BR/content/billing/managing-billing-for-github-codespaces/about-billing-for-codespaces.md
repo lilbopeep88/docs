@@ -15,7 +15,7 @@ topics:
 
 ## Preços de {% data variables.product.prodname_codespaces %}
 
-O uso de {% data variables.product.prodname_codespaces %} é cobrado para todas as contas nos planos de equipe e corporativos e não inclui nenhum direito. Atualmente, as contas individuais não são cobradas para o uso de {% data variables.product.prodname_codespaces %}.
+O uso de {% data variables.product.prodname_codespaces %} é cobrado para todas as contas corporativas e da organização em {% data variables.product.prodname_team %} e {% data variables.product.prodname_enterprise %}, que não incluem minutos ou armazenamento grátis. Atualmente, as contas pessoais não são cobradas para o uso de {% data variables.product.prodname_codespaces %}.
 
 O uso de {% data variables.product.prodname_codespaces %} é cobrado de acordo com as unidades de medida na tabela a seguir:
 

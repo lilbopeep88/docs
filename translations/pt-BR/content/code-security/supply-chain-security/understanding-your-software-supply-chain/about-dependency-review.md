@@ -45,8 +45,22 @@ Ao verificar as revisões de dependências em um pull request e alterar todas as
 
 A revisão de dependências é compatível com as mesmas linguagens e os mesmos ecossistemas de gestão de pacotes do gráfico de dependência. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 ## Habilitar revisão de dependências
 
-O recurso de revisão de dependências é disponibilizado quando você habilitar o gráfico de dependências. {% ifversion ghec %}Para obter mais informações, consulte "[Habilitando o gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph).{% endif %}{% ifversion ghes or ghae %}Para obter mais informações, consulte "[Habilitando o gráfico de dependências para a sua empresa](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)".{% endif %}
+O recurso de revisão de dependências é disponibilizado quando você habilitar o gráfico de dependências. Para obter mais informações, consulte "{% ifversion ghec %}[Habilitando o gráfico de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[Habilitando o gráfico de dependências para a sua empresa](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}".
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
+## Execução de revisão de dependência
+
+{% data reusables.dependency-review.dependency-review-action-beta-note %}
+
+Você pode usar a Revisão de Dependência do GitHub Action no seu repositório para exigir revisões de dependências em seus pull requests. A ação verifica versões vulneráveis de dependências introduzidas por alterações na versão do pacote nos pull requests, e avisa você sobre as vulnerabilidades de segurança associadas. Isso permite uma melhor visibilidade do que está mudando em um pull request e ajuda a evitar que as vulnerabilidades sejam adicionadas ao seu repositório. Para obter mais informações, consulte [`dependency-review-action`](https://github.com/actions/dependency-review-action).
+
+![Exemplo de ação de revisão de dependência](/assets/images/help/graphs/dependency-review-action.png)
+
+A verificação da revisão de dependência do GitHub Action falhará se descobrir qualquer pacote vulnerável, mas só irá impedir que uma pull request seja mesclado se o proprietário do repositório tiver exigido que a verificação passe antes do merge. Para obter mais informações, consulte "[Sobre branches protegidos](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)."
+
+A ação usa a API REST de Revisão de Dependência para obter o diff das alterações de dependência entre o commit base e o commit principal. Você pode usar a API de Revisão de Dependência para obter o diff de alterações de dependência, incluindo dados de vulnerabilidade, entre quaisquer dois commits em um repositório. Para obter mais informações, consulte "[Revisão de dependência](/rest/reference/dependency-graph#dependency-review)".
 {% endif %}
