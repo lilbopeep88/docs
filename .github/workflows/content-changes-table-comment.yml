@@ -74,7 +74,7 @@ jobs:
         run: .github/actions-scripts/content-changes-table-comment.js
 
       - name: Find content directory changes comment
-        uses: peter-evans/find-comment@d2dae40ed151c634e4189471272b57e76ec19ba8
+        uses: peter-evans/find-comment@1769778a0c5bd330272d749d12c036d65e70d39d
         id: findComment
         with:
           issue-number: ${{ github.event.pull_request.number }}
@@ -82,7 +82,7 @@ jobs:
           body-includes: '<!-- MODIFIED_CONTENT_LINKING_COMMENT -->'
 
       - name: Update comment
-        uses: peter-evans/create-or-update-comment@5221bf4aa615e5c6e95bb142f9673a9c791be2cd
+        uses: peter-evans/create-or-update-comment@c9fcb64660bc90ec1cc535646af190c992007c32
         with:
           comment-id: ${{ steps.findComment.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
